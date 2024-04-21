@@ -92,8 +92,7 @@
                     <version>3.2.5</version>
                     <configuration>
                         <includes>
-                            <include>**/MobileRunner.java</include>
-                            <include>**/DesktopRunner.java</include>
+                            <include>**/Runner.java</include>
                         </includes>
                     </configuration>
                 </plugin>
