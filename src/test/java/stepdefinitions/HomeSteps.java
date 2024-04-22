@@ -45,7 +45,7 @@ public class HomeSteps extends Base {
 
     @Given("The user clicks on submit button")
     public void theUserClicksOnSubmitButton() {
-        homePage.submitButton.click();
+        ReusableMethods.click(homePage.submitButton);
     }
 
     @Given("The user sees the login success message")
