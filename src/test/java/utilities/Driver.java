@@ -1,6 +1,7 @@
 package utilities;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -43,7 +44,7 @@ public class Driver {
         HashMap<String, Object> bstackOptions = new HashMap<String, Object>();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "latest");
-        bstackOptions.put("projectName", "Login Form Test");
+        bstackOptions.put("projectName", "Login Form");
 
         switch (driverType) {
             case DESKTOP:
@@ -52,8 +53,8 @@ public class Driver {
                 bstackOptions.put("browserVersion", "115.0");
                 bstackOptions.put("consoleLogs", "info");
                 bstackOptions.put("seleniumVersion", "4.19.1");
-                bstackOptions.put("projectName", "Login Form Test");
                 bstackOptions.put("sessionName", "Desktop Login Test");
+                capabilities.setCapability("bstack:options", bstackOptions);
                 driver.set(new RemoteWebDriver(new URL(url), capabilities));
                 break;
             case MOBILE:
@@ -61,9 +62,9 @@ public class Driver {
                 bstackOptions.put("deviceName", "Samsung Galaxy S23 Ultra");
                 bstackOptions.put("consoleLogs", "info");
                 bstackOptions.put("appiumVersion", "1.21.0");
-                bstackOptions.put("projectName", "Login Form Test");
                 bstackOptions.put("sessionName", "Mobile Login Test");
-                driver.set(new AppiumDriver(new URL(url), capabilities));
+                capabilities.setCapability("bstack:options", bstackOptions);
+                driver.set(new AndroidDriver(new URL(url), capabilities));
                 break;
         }
 
